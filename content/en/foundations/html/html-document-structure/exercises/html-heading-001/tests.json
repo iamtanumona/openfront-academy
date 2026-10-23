@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "tests": [
+    {
+      "id": "heading-exists",
+      "testType": "dom-query",
+      "selector": "h1",
+      "assertion": "count-at-least",
+      "expected": 1,
+      "weight": 50
+    },
+    {
+      "id": "main-landmark",
+      "testType": "dom-query",
+      "selector": "main",
+      "assertion": "count-at-least",
+      "expected": 1,
+      "weight": 50
+    }
+  ]
+}

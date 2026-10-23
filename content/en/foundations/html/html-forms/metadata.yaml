@@ -1,0 +1,17 @@
+id: html-forms
+version: 0.2.0
+moduleId: html-fundamentals
+slug: html-forms
+title: Accessible forms
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- html-links-images
+objectives:
+- Associate form labels with controls and provide clear hints.
+exerciseIds: []
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

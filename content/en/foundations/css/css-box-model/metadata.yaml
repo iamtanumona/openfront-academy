@@ -1,0 +1,17 @@
+id: css-box-model
+version: 0.2.0
+moduleId: css-fundamentals
+slug: css-box-model
+title: The box model
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- css-selectors
+objectives:
+- Describe how box sizing affects element dimensions.
+exerciseIds: []
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

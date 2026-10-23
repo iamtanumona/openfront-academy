@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LearnerDashboard from '../components/LearnerDashboard';
+import LearnerCertificates from '../components/LearnerCertificates';
+---
+<Layout title="My learning dashboard — OpenFront Academy">
+ <h1>My learning dashboard</h1>
+ <p>Sign in to save your learning progress across devices.</p>
+ <LearnerDashboard client:load />
+ <LearnerCertificates client:load />
+</Layout>

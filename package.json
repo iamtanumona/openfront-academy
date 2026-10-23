@@ -1,0 +1,29 @@
+{
+  "name": "openfront-academy",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "db:migrate": "pnpm --filter @ofa/api db:migrate",
+    "db:seed": "pnpm --filter @ofa/api db:seed",
+    "content:validate": "pnpm --filter @ofa/curriculum validate",
+    "db:seed:curriculum": "pnpm --filter @ofa/api db:seed:curriculum",
+    "test:e2e": "playwright test",
+    "release:check": "pnpm content:validate && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3",
+    "@types/node": "^22.18.6",
+    "@playwright/test": "^1.56.0",
+    "@axe-core/playwright": "^4.11.0"
+  }
+}

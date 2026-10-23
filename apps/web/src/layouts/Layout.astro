@@ -1,0 +1,19 @@
+---
+import SkipLink from '../components/SkipLink.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Free and open-source frontend engineering education" />
+  <title>{title}</title>
+  <style is:global>
+   :root{font-family:system-ui,sans-serif;color:#162334;background:#fafcff;color-scheme:light}*{box-sizing:border-box}body{margin:0;line-height:1.65}.container{max-width:60rem;margin:auto;padding:1.5rem}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15}h2{line-height:1.25}.eyebrow{font-weight:700;color:#126d65}a{color:#075a9c;text-underline-offset:3px}:focus-visible{outline:3px solid #087a7a;outline-offset:4px}.panel{border:1px solid #c9d6e4;border-radius:12px;padding:1.25rem;background:#fff}pre{overflow:auto;padding:1rem;background:#102033;color:#f5f7fa;border-radius:.75rem}code{font-family:ui-monospace,monospace}p{max-width:72ch}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important}}
+   .editor-field{margin:1rem 0}.editor-field label{display:block;font-weight:700;margin-bottom:.3rem}.editor-field textarea{width:100%;max-width:100%;box-sizing:border-box;font:14px/1.5 ui-monospace,monospace;padding:.75rem;border:2px solid #64748b;border-radius:.5rem;background:#fff;color:#111}.editor-field textarea:focus-visible,.playground button:focus-visible{outline:3px solid #0d9488;outline-offset:3px}.playground-actions{display:flex;gap:.75rem}.playground button{padding:.65rem 1rem;cursor:pointer}.sandbox-preview{width:100%;min-height:220px;border:2px solid #64748b;background:#fff;color:#111}
+</style>
+ </head>
+ <body><SkipLink/><SiteHeader/><main id="main-content" class="container"><slot /></main></body>
+</html>

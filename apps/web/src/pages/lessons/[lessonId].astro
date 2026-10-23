@@ -1,0 +1,30 @@
+---
+import CompleteLesson from '../../components/CompleteLesson';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import {catalog} from '../../lib/curriculum';
+const lessonModules=import.meta.glob('../../../../../content/en/**/lesson.mdx');
+const metaModules=import.meta.glob('../../../../../content/en/**/metadata.yaml',{query:'?raw',import:'default',eager:true});
+import YAML from 'yaml';
+export function getStaticPaths(){
+ return Object.entries(metaModules).map(([path,raw])=>{
+  const metadata=YAML.parse(String(raw));const mdxPath=path.replace('metadata.yaml','lesson.mdx');
+  if(!lessonModules[mdxPath])throw new Error(`Missing MDX ${mdxPath}`);
+  return {params:{lessonId:metadata.id},props:{lessonId:metadata.id,mdxPath}};
+ });
+}
+const {lessonId,mdxPath}=Astro.props;
+const lesson=catalog.lessons.find(l=>l.id===lessonId)!;
+const module=catalog.modules.find(m=>m.id===lesson.moduleId)!;
+const track=catalog.tracks.find(t=>t.id===module.trackId)!;
+const {Content}=await lessonModules[mdxPath]();
+---
+<Layout title={`${lesson.title} — OpenFront Academy`}>
+ <Breadcrumbs items={[{label:'Learning paths',href:'/tracks'},{label:track.title,href:`/tracks/${track.id}`},{label:lesson.title}]}/>
+ <article><header><p class="eyebrow">{module.title} · {lesson.estimatedMinutes} minutes</p><h1>{lesson.title}</h1></header>
+ <section aria-labelledby="objectives-heading" class="panel"><h2 id="objectives-heading">Learning objectives</h2><ul>{lesson.objectives.map(o=><li>{o}</li>)}</ul></section>
+ <Content/>
+ {lesson.exerciseIds.length>0 && <section aria-labelledby="practice-heading"><h2 id="practice-heading">Practice exercises</h2><ul>{lesson.exerciseIds.map(id=><li><a href={`/exercises/${id}`}>Open interactive exercise: {id}</a></li>)}</ul></section>}
+ <nav aria-label="Lesson navigation"><p><a href={`/tracks/${track.id}`}>← Back to {track.title}</a></p></nav></article>
+<CompleteLesson client:load lessonId={lesson.id} contentVersion={lesson.version} />
+</Layout>

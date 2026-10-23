@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { catalog, orderedModules } from '../../lib/curriculum';
+---
+<Layout title="Learning paths — OpenFront Academy">
+ <h1>Learning paths</h1><p>Choose a free, self-paced track. Lessons are readable without an account.</p>
+ {catalog.tracks.map(track=><article class="panel"><h2><a href={`/tracks/${track.id}`}>{track.title}</a></h2><p>{track.description}</p><p>{orderedModules(track.id).length} modules · {track.level}</p></article>)}
+</Layout>

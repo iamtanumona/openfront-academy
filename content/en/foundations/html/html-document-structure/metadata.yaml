@@ -1,0 +1,17 @@
+id: html-document-structure
+version: 0.2.0
+moduleId: html-fundamentals
+slug: html-document-structure
+title: Document structure
+locale: en
+estimatedMinutes: 15
+prerequisites: []
+objectives:
+- Understand the purpose of doctype and HTML landmarks.
+exerciseIds:
+- html-heading-001
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

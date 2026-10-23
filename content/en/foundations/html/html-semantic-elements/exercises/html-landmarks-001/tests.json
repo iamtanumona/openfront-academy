@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "tests": [
+    {
+      "id": "main-landmark",
+      "testType": "dom-query",
+      "selector": "main",
+      "assertion": "count-at-least",
+      "expected": 1,
+      "weight": 50
+    },
+    {
+      "id": "navigation-landmark",
+      "testType": "dom-query",
+      "selector": "nav",
+      "assertion": "count-at-least",
+      "expected": 1,
+      "weight": 50
+    }
+  ]
+}

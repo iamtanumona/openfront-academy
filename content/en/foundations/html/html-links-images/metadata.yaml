@@ -1,0 +1,17 @@
+id: html-links-images
+version: 0.2.0
+moduleId: html-fundamentals
+slug: html-links-images
+title: Links and images
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- html-semantic-elements
+objectives:
+- Choose meaningful link text and useful image alt text.
+exerciseIds: []
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

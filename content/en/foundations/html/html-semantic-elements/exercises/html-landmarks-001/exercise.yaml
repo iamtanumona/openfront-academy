@@ -1,0 +1,17 @@
+id: html-landmarks-001
+version: 1.0.0
+lessonId: html-semantic-elements
+engine: html-css-js
+title: Add semantic landmarks
+difficulty: beginner
+starterFiles:
+- index.html
+- style.css
+- script.js
+limits:
+  maxSourceBytes: 50000
+  maxRuntimeMs: 3000
+grading:
+  mode: client-formative
+  passingScore: 100
+  testsFile: tests.json

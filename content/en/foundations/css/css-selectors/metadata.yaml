@@ -1,0 +1,16 @@
+id: css-selectors
+version: 0.2.0
+moduleId: css-fundamentals
+slug: css-selectors
+title: Selectors and cascade
+locale: en
+estimatedMinutes: 15
+prerequisites: []
+objectives:
+- Differentiate class selectors and element selectors.
+exerciseIds: []
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

@@ -1,0 +1,3 @@
+* @openfront/core-maintainers
+/database/ @openfront/backend-maintainers
+/apps/api/ @openfront/backend-maintainers

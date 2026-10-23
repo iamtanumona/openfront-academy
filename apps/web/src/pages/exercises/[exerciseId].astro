@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CodePlayground from '../../components/CodePlayground';
+import YAML from 'yaml';
+import {exerciseSchema,testsSchema} from '@ofa/curriculum';
+const definitions=import.meta.glob('../../../../../content/en/**/exercise.yaml',{query:'?raw',import:'default',eager:true});
+const assets=import.meta.glob('../../../../../content/en/**/exercises/**/*.{html,css,js,json}',{query:'?raw',import:'default',eager:true});
+export function getStaticPaths(){return Object.entries(definitions).map(([path,raw])=>({params:{exerciseId:exerciseSchema.parse(YAML.parse(String(raw))).id},props:{path}}));}
+const {path}=Astro.props;
+const exercise=exerciseSchema.parse(YAML.parse(String(definitions[path])));
+const base=path.slice(0,path.lastIndexOf('/'));
+function asset(path:string){const v=assets[path];if(typeof v!=='string')throw new Error(`Missing exercise asset ${path}`);return v;}
+const suite=testsSchema.parse(JSON.parse(asset(`${base}/${exercise.grading.testsFile}`)));
+const starter={html:asset(`${base}/starter/index.html`),css:asset(`${base}/starter/style.css`),javascript:asset(`${base}/starter/script.js`)};
+---
+<Layout title={`${exercise.title} — OpenFront Academy`}>
+ <Breadcrumbs items={[{label:'Learning paths',href:'/tracks'},{label:'Exercise'}]}/>
+ <h1>{exercise.title}</h1>
+ <CodePlayground client:load title={exercise.title} starter={starter} suite={suite} maxSourceBytes={exercise.limits.maxSourceBytes} maxRuntimeMs={exercise.limits.maxRuntimeMs}/>
+</Layout>

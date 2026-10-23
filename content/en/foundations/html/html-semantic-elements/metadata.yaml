@@ -1,0 +1,18 @@
+id: html-semantic-elements
+version: 0.2.0
+moduleId: html-fundamentals
+slug: html-semantic-elements
+title: Semantic elements
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- html-document-structure
+objectives:
+- Explain how headings and landmarks improve navigation.
+exerciseIds:
+- html-landmarks-001
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

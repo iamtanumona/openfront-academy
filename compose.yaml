@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ofa
+      POSTGRES_PASSWORD: ofa_local_only
+      POSTGRES_DB: ofa
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ofa -d ofa"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://ofa:ofa_local_only@postgres:5432/ofa
+      PORT: 3001
+      HOST: 0.0.0.0
+      NODE_ENV: development
+      WEB_ORIGIN: http://localhost:4321
+    ports:
+      - "127.0.0.1:3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  pgdata:

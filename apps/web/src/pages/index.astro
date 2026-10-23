@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StatusPanel from '../components/StatusPanel.tsx';
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3001/v1';
+---
+<Layout title="OpenFront Academy — Learn frontend openly">
+ <p class="eyebrow">Open-source frontend education</p>
+ <h1>Learn frontend engineering. Openly.</h1>
+ <p>Build real skills through free, accessible lessons and hands-on examples.</p>
+ <p><a href="/tracks">Browse learning paths →</a></p>
+ <section aria-labelledby="status-heading"><h2 id="status-heading">Platform status</h2><StatusPanel client:visible apiBase={apiBase}/></section>
+</Layout>

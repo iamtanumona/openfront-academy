@@ -1,0 +1,18 @@
+id: css-flexbox
+version: 0.2.0
+moduleId: css-fundamentals
+slug: css-flexbox
+title: Flexbox layouts
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- css-box-model
+objectives:
+- Use flex alignment and wrapping for responsive components.
+exerciseIds:
+- css-flex-001
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development

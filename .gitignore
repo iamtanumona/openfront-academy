@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.turbo/
+.env
+.env.*
+!.env.example
+coverage/
+.DS_Store
+*.log
+
+# Staging secrets
+infrastructure/staging/.env.staging
+infrastructure/staging/.env.web.staging

@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import {catalog,orderedModules,moduleLessons} from '../../lib/curriculum';
+export function getStaticPaths(){return catalog.tracks.map(track=>({params:{trackId:track.id},props:{track}}))}
+const {track}=Astro.props;
+---
+<Layout title={`${track.title} — OpenFront Academy`}>
+ <Breadcrumbs items={[{label:'Learning paths',href:'/tracks'},{label:track.title}]}/>
+ <h1>{track.title}</h1><p>{track.description}</p>
+ {orderedModules(track.id).map(module=><section aria-labelledby={`module-${module.id}`} class="panel"><h2 id={`module-${module.id}`}>{module.title}</h2><p>{module.description}</p><ol>{moduleLessons(module.id).map(lesson=><li><a href={`/lessons/${lesson.id}`}>{lesson.title}</a> <small>({lesson.estimatedMinutes} min)</small></li>)}</ol></section>)}
+</Layout>

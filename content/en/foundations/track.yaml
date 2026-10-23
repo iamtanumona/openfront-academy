@@ -1,0 +1,15 @@
+id: frontend-foundations
+version: 0.2.0
+locale: en
+title: Frontend Foundations
+description: Build practical, accessible websites with HTML and CSS.
+level: beginner
+modules:
+  - id: html-fundamentals
+    required: true
+  - id: css-fundamentals
+    required: true
+completion:
+  requireAllLessons: true
+  requireCapstone: false
+  credentialType: completion

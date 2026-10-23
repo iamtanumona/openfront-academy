@@ -1,0 +1,17 @@
+id: css-responsive-design
+version: 0.2.0
+moduleId: css-fundamentals
+slug: css-responsive-design
+title: Responsive design
+locale: en
+estimatedMinutes: 15
+prerequisites:
+- css-flexbox
+objectives:
+- Apply a mobile-first media query without losing readability.
+exerciseIds: []
+accessibility:
+  requiresKeyboardAccess: true
+  includesTextAlternative: true
+references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development
